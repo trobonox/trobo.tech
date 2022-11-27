@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+	<main>
+		<div>
+			<div class="flex flex-row gap-4 items-center pt-8">
+				<h1 class="text-6xl font-bold">
+					Hi, I&apos;m&nbsp;<span class="hero-text">Trobo</span>
+				</h1>
+			</div>
+			<p class="ml-1 text-xl text-gray-200 mb-4">
+				Tech Enthusiast and Developer from Germany
+			</p>
+			<p class="ml-1 text-xl max-w-lg lg:max-w-2xl">
+				I am a passionate developer specializing in front-end web
+				development and creation of automation scripts with Python. You
+				can see some of my work below.
+			</p>
+			<div class="flex flex-row items-center gap-4 ml-1 mt-8">
+				<a
+					href="#projects"
+					class="px-6 py-2 text-lg hover:text-gray-50 border border-accent-200 bg-accent-200 hover:bg-accent-300 rounded-xl transition-colors duration-300"
+				>
+					View Work
+				</a>
+				<a
+					href="/about"
+					class="px-6 py-2 text-lg hover:text-gray-50 border border-accent-200 rounded-xl hover:bg-accent-300 transition-colors duration-300"
+				>
+					More About Me
+				</a>
+			</div>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.hero-text {
+		background-image: url("../../images/gradient.gif");
+		background-position: 46% 48%;
+		webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+</style>
