@@ -30,9 +30,9 @@
     });
 
     const offline = computed(() => {
-        if (lanyard.value == null) return false;
+        if (lanyard.value === null) return false;
 
         //@ts-ignore
-        lanyard.value.data.discord_status === "offline"
+        return lanyard.value.data.discord_status === "offline";
     })
 </script>
