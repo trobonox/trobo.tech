@@ -1,10 +1,6 @@
 ---
+import DiscordStatus from "../components/DiscordStatus.vue";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const lanyard_url = "https://api.lanyard.rest/v1/users/540898474288480256";
-
-const response = await fetch(lanyard_url).then((response) => response.json());
-const offline = response.data.discord_status === "offline";
 ---
 
 <BaseLayout>
@@ -39,29 +35,7 @@ const offline = response.data.discord_status === "offline";
 					</a>
 				</div>
 			</div>
-			<div class="md:flex flex-col hidden">
-				<div class="relative inline-block">
-					<img
-						src="./profile_picture.jpg"
-						alt="Trobonox Profile Picture"
-						class="rounded-full w-48 h-48 object-cover"
-					/>
-					{
-						!offline ? (
-							<span class="w-8 h-8 rounded-full bg-emerald-500 border-2 border-emerald-600 absolute right-4 bottom-0.5" />
-						) : (
-							<span class="w-8 h-8 rounded-full bg-gray-500 border-2 border-gray-600 absolute right-4 bottom-0.5" />
-						)
-					}
-				</div>
-				<div
-					class="mt-8 py-2 px-8 bg-gray-700 rounded-md text-center self-center w-fit"
-				>
-					Status: <span class="font-bold"
-						>{response.data.discord_status}</span
-					>
-				</div>
-			</div>
+			<DiscordStatus client:load />
 		</section>
 	</main>
 </BaseLayout>
