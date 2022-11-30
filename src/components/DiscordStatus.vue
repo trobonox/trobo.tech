@@ -2,7 +2,7 @@
     <div class="md:flex flex-col hidden">
         <div class="relative inline-block">
             <img
-                src=",/profile-picture.jpg"
+                src="./profile-picture.jpg"
                 alt="Trobonox Profile Picture"
                 class="rounded-full w-48 h-48 object-cover"
             />
