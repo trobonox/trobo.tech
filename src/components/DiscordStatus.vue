@@ -6,24 +6,17 @@
                 alt="Trobonox Profile Picture"
                 class="rounded-full w-48 h-48 object-cover"
             />
-            <span v-if="!offline" class="w-8 h-8 rounded-full bg-emerald-500 border-2 border-emerald-600 absolute right-4 bottom-0.5" />
-            <span v-else class="w-8 h-8 rounded-full bg-gray-500 border-2 border-gray-600 absolute right-4 bottom-0.5" />
-        </div>
-        <div
-            class="mt-8 py-2 px-8 bg-gray-700 rounded-md text-center self-center w-fit"
-        >
-            Status: <span class="font-bold"
-                >{{ lanyard?.data.discord_status }}</span
-            >
+            <span v-if="!offline" data-text="Discord Status: online" class="tooltip w-8 h-8 rounded-full bg-emerald-500 border-4 border-emerald-600 absolute right-4 bottom-0.5" />
+            <span v-else data-text="Currently offline" class="tooltip w-8 h-8 rounded-full bg-gray-500 border-4 border-gray-600 absolute right-4 bottom-0.5" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { computed, onMounted, ref } from 'vue';
+    import { computed, onMounted, Ref, ref } from 'vue';
 
     const lanyard_url = "https://api.lanyard.rest/v1/users/540898474288480256";
-    const lanyard = ref(null);
+    const lanyard: Ref<any> = ref(null);
 
     onMounted(async () => {
         lanyard.value = await fetch(lanyard_url).then((response) => response.json());
@@ -36,3 +29,28 @@
         return lanyard.value.data.discord_status === "offline";
     })
 </script>
+
+<style scoped>
+.tooltip:before {
+    content: attr(data-text);
+    position: absolute;
+
+    top: 180%;
+    right: -100%;
+
+    margin-left: 15px;
+
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #1a1a1a;
+    color: rgb(190, 207, 230);
+    text-align: center;
+
+    display: none;    
+}
+
+.tooltip:hover:before {
+    display: block;
+}
+</style>
