@@ -21,17 +21,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					You can see some of my work below.
 				</p>
 				<div class="flex flex-row items-center gap-4 ml-1 mt-8">
-					<a
-						href="#projects"
-						class="px-6 py-2 text-lg hover:text-gray-50 border border-accent-200 bg-accent-200 hover:bg-accent-300 rounded-xl transition-colors duration-300"
-					>
-						View Work
+					<a href="#projects" class="bg-gradient-to-br from-accent-100 to-accent-400 rounded-xl p-0.5">
+						<div
+							
+							class="px-6 py-2 text-lg rounded-xl transition-colors duration-300 w-full h-full bg-gray-800 hover:bg-transparent"
+						>
+							View Work
+						</div>
 					</a>
 					<a
 						href="/about"
-						class="px-6 py-2 text-lg hover:text-gray-50 border border-accent-200 rounded-xl hover:bg-accent-300 transition-colors duration-300"
+						class="rounded-xl p-0.5 border-pog-hover"
 					>
-						More About Me
+						<div class="px-6 py-2 text-lg rounded-xl bg-gray-800">More About Me</div>
 					</a>
 				</div>
 			</div>
@@ -47,5 +49,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
+	}
+
+	.border-pog-hover {
+		background-image: linear-gradient(to bottom right, #292929, #1a1a1a);
+		transition: all 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+	}
+
+	.border-pog-hover:hover {
+		background-image: linear-gradient(to top left, rgb(119, 69, 255), rgb(43, 43, 209));
+		transition: all 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 	}
 </style>
