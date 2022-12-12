@@ -1,5 +1,6 @@
 ---
 import DiscordStatus from "../components/DiscordStatus.vue";
+import ProjectCard from "../components/ProjectCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -14,7 +15,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<g clip-path="url(#clip0_1_2)">
-					<rect width="2440" height="1004" fill="#090C0E"></rect>
+					<rect width="2440" height="1099" fill="#090C0E"></rect>
 					<path
 						d="M-286 798.5C-69 691.833 365 412.3 365 147.5C365 -117.3 666.333 -219.167 817 -237"
 						stroke="#201A21"
@@ -38,12 +39,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 						d="M2525.08 -39.2476C2472.11 -108.89 2328.32 -194.11 2176.89 22.1463C1987.61 292.467 1698.99 339.409 1736.07 549.711C1765.74 717.953 1404.39 1005.98 1220 1128.96"
 						stroke="#201A21"
 						stroke-width="8"></path>
-					<rect
-						y="909"
-						width="2440"
-						height="190"
-						rx="91"
-						fill="#090C0E"></rect>
 				</g>
 				<defs>
 					<linearGradient
@@ -103,7 +98,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			</div>
 			<DiscordStatus client:load />
 		</section>
-		<section id="projects"></section>
+		<section id="projects" class="mt-[20vh]">
+			<h2 class="mb-8 font-bold text-4xl tracking-wide">Projects</h2>
+			<div class="grid grid-flow-col w-full justify-between gap-8">
+				<ProjectCard />
+				<ProjectCard />
+				<ProjectCard />
+			</div>
+		</section>
 	</main>
 </BaseLayout>
 
