@@ -1,13 +1,14 @@
 ---
-const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} Trobonox
+<footer
+	class="flex md:flex-row flex-col justify-between items-center w-full max-w-6xl px-8 py-6 mx-auto"
+>
+	<div class="flex flex-row gap-2">
+		<p>© 2022 Trobonox -</p>
+		<a href="/licenses" class="text-lavender hover:text-mauve"
+			>License Notice</a
+		>
+	</div>
+	<p class="text-center">Made with ❤ using Astro</p>
 </footer>
-<style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
-</style>
