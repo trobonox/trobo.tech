@@ -20,10 +20,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					development and creation of automation scripts with Python.
 					You can see some of my work below.
 				</p>
-				<div class="flex md:flex-row flex-col md:items-center items-start gap-4 ml-1 mt-8">
-					<a href="#projects" class="bg-gradient-to-br from-accent-100 to-accent-400 rounded-xl p-0.5">
+				<div
+					class="flex md:flex-row flex-col md:items-center items-start gap-4 ml-1 mt-8"
+				>
+					<a
+						href="#projects"
+						class="bg-gradient-to-br from-accent-100 to-accent-400 rounded-xl p-0.5"
+					>
 						<div
-							
 							class="px-6 py-2 text-lg rounded-xl transition-colors duration-300 w-full h-full bg-gray-800 hover:bg-transparent"
 						>
 							View Work
@@ -31,9 +35,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					</a>
 					<a
 						href="/about"
-						class="rounded-xl p-0.5 border-pog-hover"
+						class="rounded-xl p-0.5 border-gradient-hover"
 					>
-						<div class="px-6 py-2 text-lg rounded-xl bg-gray-800">More About Me</div>
+						<div class="px-6 py-2 text-lg rounded-xl bg-gray-800">
+							More About Me
+						</div>
 					</a>
 				</div>
 			</div>
@@ -51,13 +57,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		-webkit-text-fill-color: transparent;
 	}
 
-	.border-pog-hover {
+	.border-gradient-hover {
 		background-image: linear-gradient(to bottom right, #292929, #1a1a1a);
 		transition: all 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 	}
 
-	.border-pog-hover:hover {
-		background-image: linear-gradient(to top left, rgb(119, 69, 255), rgb(43, 43, 209));
+	.border-gradient-hover:hover {
+		background-image: linear-gradient(
+			to top left,
+			rgb(119, 69, 255),
+			rgb(43, 43, 209)
+		);
 		transition: all 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 	}
 </style>
