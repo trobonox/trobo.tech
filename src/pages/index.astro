@@ -99,12 +99,37 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			<DiscordStatus client:load />
 		</section>
 		<section id="projects" class="mt-[20vh]">
-			<h2 class="mb-8 font-bold text-4xl tracking-wide">Projects</h2>
-			<div class="grid grid-flow-col w-full justify-between gap-8">
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
+			<h2
+				class="mb-8 font-bold text-4xl tracking-wide underline decoration-accent-100"
+			>
+				Projects
+			</h2>
+			<div
+				class="md:grid md:grid-flow-col flex flex-col w-full justify-between gap-8 mb-4"
+			>
+				<ProjectCard
+					title="Kanri"
+					description="Cross-platform, offline-first Kanban board desktop application with a focus on simplicity and user experience. Made with Tauri and Nuxt.js v3, official successor to Kanban Electron."
+					tech="HTML, TailwindCSS, TypeScript, Nuxt.js v3, Tauri, JSON"
+					github="https://github.com/trobonox/kanri"
+				/>
+				<ProjectCard
+					title="Productivity Suite"
+					description="All-in-one web app for productivity tools like a Pomodoro timer and a Kanban board, with user authentication and cloud save using Supabase as the backend."
+					tech="HTML, Tailwind CSS, JavaScript, Nuxt.js, Supabase (PostgreSQL Database + Authentication)"
+					website="https://productivity-suite-three.vercel.app/"
+				/>
+
+				<ProjectCard
+					title="Ultramarine Linux Website"
+					description="Designed and implemented a landing page for the Linux Distribution Ultramarine, which is based on Fedora Linux."
+					tech="HTML, Tailwind CSS, Javascript, Nuxt.js"
+					website="https://ultramarine-linux.org"
+				/>
 			</div>
+			<a href="/projects" class="text-gray-200 hover:text-gray-50"
+				>View more...</a
+			>
 		</section>
 	</main>
 </BaseLayout>
