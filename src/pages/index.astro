@@ -58,6 +58,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				</defs>
 			</svg>
 		</div>
+		<div
+			class="absolute top-0 right-0 aspect-[21/9] -z-10 w-full md:hidden block"
+		>
+			<svg
+				viewBox="0 0 2168 1650"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<g clip-path="url(#clip0_6_2)">
+					<rect width="2168" height="1650" fill="#090C0E"></rect>
+					<path
+						d="M-283 861.5C-66 754.833 368 475.3 368 210.5C368 -54.3 669.333 -156.167 820 -174"
+						stroke="#201A21"
+						stroke-width="8"></path>
+					<ellipse
+						cx="1084"
+						cy="56"
+						rx="1300"
+						ry="500"
+						fill="url(#paint0_linear_6_2)"
+						fill-opacity="0.3"></ellipse>
+					<path
+						d="M2165.2 1153.5C2008.53 1104.83 1727.6 975.1 1857.2 845.5C2019.2 683.5 2353.7 911 2435.2 735.5C2516.7 560 2649.2 575.5 2598.7 475"
+						stroke="#201A21"
+						stroke-width="8"></path>
+					<path
+						d="M184 1215.83C349.167 1050.66 649.4 685.429 529 545.829C378.5 371.329 1403.5 619.329 1561 297.829C1718.5 -23.671 1828.5 -74.171 1949.5 -7.17099"
+						stroke="#201A21"
+						stroke-width="8"></path>
+					<path
+						d="M2438.08 103.752C2385.11 34.1103 2241.32 -51.1098 2089.89 165.146C1900.61 435.467 1611.99 482.409 1649.07 692.711C1678.74 860.953 1317.39 1148.98 1133 1271.96"
+						stroke="#201A21"
+						stroke-width="8"></path>
+				</g>
+				<defs>
+					<linearGradient
+						id="paint0_linear_6_2"
+						x1="1084"
+						y1="-444"
+						x2="1084"
+						y2="556"
+						gradientUnits="userSpaceOnUse"
+					>
+						<stop stop-color="#B71EFF"></stop>
+						<stop offset="1" stop-opacity="0"></stop>
+					</linearGradient>
+					<clipPath id="clip0_6_2">
+						<rect width="2168" height="1650" fill="white"></rect>
+					</clipPath>
+				</defs>
+			</svg>
+		</div>
 		<section id="hero" class="flex flex-row justify-between pt-8">
 			<div id="hero-text" class="mr-8">
 				<div class="flex flex-row gap-4 items-center">
@@ -102,7 +154,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			</div>
 			<DiscordStatus client:load />
 		</section>
-		<section id="projects" class="mt-[20vh]">
+		<section id="projects" class="mt-[20vh] mb-20">
 			<h2
 				class="mb-8 font-bold text-4xl tracking-wide underline decoration-accent-100 intersect-hidden"
 			>
@@ -163,6 +215,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				>View more...</a
 			>
 		</section>
+		<section id="contact" class="mb-8">
+			<h2
+				class="mb-8 font-bold text-4xl tracking-wide underline decoration-accent-100 intersect-hidden"
+			>
+				Contact
+			</h2>
+			<p class="text-lg intersect-hidden">
+				If you have any questions or want to work with me feel free to
+				write an email at: hello(at)trobo.tech. <br /> Alternatively, you
+				can message me on Discord: Trobonox#2680
+			</p>
+		</section>
 	</main>
 </BaseLayout>
 
@@ -217,16 +281,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <script>
 	const hiddenElements = document.querySelectorAll(".intersect-hidden");
 
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (!entry.isIntersecting) return;
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
 
-			entry.target.classList.toggle(
-				"intersect-show",
-				entry.isIntersecting
-			);
-		});
-	});
+				entry.target.classList.toggle(
+					"intersect-show",
+					entry.isIntersecting
+				);
+			});
+		},
+		{ threshold: 0.2 }
+	);
 
 	hiddenElements.forEach((element) => {
 		observer.observe(element);
