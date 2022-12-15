@@ -1,9 +1,109 @@
 ---
+import ProjectCard from "../components/ProjectCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
     <main>
-        <h1 class="font-bold md:text-5xl text-4xl mb-8">Projects</h1>
+        <h1 class="font-bold md:text-5xl text-4xl mb-4">Projects</h1>
+        <p class="mb-8 text-gray-100">
+            Here you can find most projects I've created and worked on so far:
+        </p>
+        <div class="grid grid-responsive gap-8 w-full mb-8">
+            <ProjectCard
+                classList="projects-intersect-hidden"
+                title="Kanri"
+                description="Cross-platform, offline-first Kanban board desktop application with a focus on simplicity and user experience. Made with Tauri and Nuxt.js v3, official successor to Kanban Electron."
+                tech="HTML, TailwindCSS, TypeScript, Nuxt.js v3, Tauri, JSON"
+                github="https://github.com/trobonox/kanri"
+            />
+            <ProjectCard
+                classList="projects-intersect-hidden transition-delay-1"
+                title="Productivity Suite"
+                description="All-in-one web app for productivity tools like a Pomodoro timer and a Kanban board, with user authentication and cloud save using Supabase as the backend."
+                tech="HTML, Tailwind CSS, JavaScript, Nuxt.js, Supabase (PostgreSQL Database + Authentication)"
+                website="https://productivity-suite-three.vercel.app/"
+            />
+
+            <ProjectCard
+                classList="projects-intersect-hidden transition-delay-2"
+                title="Ultramarine Linux Website"
+                description="Designed and implemented a landing page for the Linux Distribution Ultramarine, which is based on Fedora Linux."
+                tech="HTML, Tailwind CSS, Javascript, Nuxt.js"
+                website="https://ultramarine-linux.org"
+            />
+            <ProjectCard
+                classList="projects-intersect-hidden"
+                title="AbletonConvert"
+                description="A CLI Tool for making Files from newer Ableton 10 Versions (10.1.x) compatible with older ones (10.0.x)"
+                tech=".NET, C#, XML, Ableton Live Sets"
+                github="https://github.com/trobonox/abletonconvert"
+            />
+            <ProjectCard
+                classList="projects-intersect-hidden transition-delay-1"
+                title="Pokaimon"
+                description="Collaborated with 2 people to build a Genshin Impact themed collectible game with mechanics similar to Pokémon, made for the Supabase Launch Week 5 Hackathon."
+                tech="HTML, TailwindCSS, TypeScript/JavaScript, Vue.js v3, Supabase"
+                github="https://github.com/trobonox/pokaimon"
+                website="https://pokaimon.moe"
+            />
+            <ProjectCard
+                classList="projects-intersect-hidden transition-delay-2"
+                title="Lohem Bot"
+                description="Discord bot for the community Lohem, based around the game The Isle. Manages gameserver config files over FTP and integrates this concept with features like a currency system."
+                tech="Python, Discord.py, SQLite, FTP Data Transfer, JSON"
+            />
+            <ProjectCard
+                classList="projects-intersect-hidden"
+                title="Custom Startpage"
+                description="Custom Start Page with bookmarks etc. as a New Tab page for my browser using a browser extension"
+                tech="HTML, CSS, JavaScript, Browser Extension"
+                website="https://start.trobonox.tk"
+            />
+            <ProjectCard
+                classList="projects-intersect-hidden transition-delay-1"
+                title="AniWatch"
+                description="Web app to visualize results from the official Anilst.co GraphQL API in a unique way using an infinite carousel."
+                tech="HTML, CSS, Javascript, Vue.js, Anilist.co GraphQL API"
+                github="https://aniwatch.vercel.app"
+            />
+            <ProjectCard
+                classList="projects-intersect-hidden transition-delay-2"
+                title="Ultramarine Linux Welcome App"
+                description="Front-end for a work in progress welcome app for the Linux distro Ultramarine Linux"
+                tech="HTML, TailwindCSS, TypeScript, Nuxt.js, Tauri"
+                github="https://github.com/ultramarine-linux/tauri-welcome"
+            />
+        </div>
     </main>
 </BaseLayout>
+
+<style>
+    .grid-responsive {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+</style>
+
+<script>
+    const projectCardElements = document.querySelectorAll(
+        ".projects-intersect-hidden"
+    );
+
+    const projectCardObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.toggle(
+                    "projects-intersect-show",
+                    entry.isIntersecting
+                );
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    projectCardElements.forEach((element) => {
+        projectCardObserver.observe(element);
+    });
+</script>
