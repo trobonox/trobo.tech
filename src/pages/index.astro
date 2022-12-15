@@ -61,24 +61,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		<section id="hero" class="flex flex-row justify-between pt-8">
 			<div id="hero-text" class="mr-8">
 				<div class="flex flex-row gap-4 items-center">
-					<h1 class="md:text-6xl text-5xl font-bold">
+					<h1 class="md:text-6xl text-5xl font-bold intersect-hidden">
 						Hi, I&apos;m&nbsp;<span class="hero-text">Trobo</span>
 					</h1>
 				</div>
-				<p class="ml-1 md:text-xl text-lg text-gray-200 mb-4">
+				<p
+					class="ml-1 md:text-xl text-lg text-gray-200 mb-4 intersect-hidden"
+				>
 					Tech Enthusiast and Developer from Germany
 				</p>
-				<p class="ml-1 md:text-xl text-lg max-w-lg lg:max-w-2xl">
+				<p
+					class="ml-1 md:text-xl text-lg max-w-lg lg:max-w-2xl intersect-hidden"
+				>
 					I am a passionate developer specializing in front-end web
 					development and creation of automation scripts with Python.
 					You can see some of my work below.
 				</p>
 				<div
-					class="flex md:flex-row flex-col md:items-center items-start gap-4 ml-1 mt-8"
+					class="buttons-row flex md:flex-row flex-col md:items-center items-start gap-4 ml-1 mt-8"
 				>
 					<a
 						href="#projects"
-						class="bg-gradient-to-br from-accent-100 to-accent-400 rounded-xl pb-0.5 pt-[1.96px] px-0.5"
+						class="bg-gradient-to-br from-accent-100 to-accent-400 rounded-xl pb-0.5 pt-[1.96px] px-0.5 intersect-hidden"
 					>
 						<div
 							class="px-6 py-2 text-lg rounded-xl transition-colors duration-300 w-full h-full bg-gray-800 hover:bg-transparent"
@@ -88,7 +92,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					</a>
 					<a
 						href="/about"
-						class="rounded-xl pb-0.5 pt-[1.96px] px-0.5 border-gradient-hover"
+						class="rounded-xl pb-0.5 pt-[1.96px] px-0.5 border-gradient-hover intersect-hidden"
 					>
 						<div class="px-6 py-2 text-lg rounded-xl bg-gray-800">
 							More About Me
@@ -100,7 +104,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		</section>
 		<section id="projects" class="mt-[20vh]">
 			<h2
-				class="mb-8 font-bold text-4xl tracking-wide underline decoration-accent-100"
+				class="mb-8 font-bold text-4xl tracking-wide underline decoration-accent-100 intersect-hidden"
 			>
 				Projects
 			</h2>
@@ -108,12 +112,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				class="md:grid md:grid-flow-col flex flex-col w-full justify-between gap-8 mb-4"
 			>
 				<ProjectCard
+					classList="projects-intersect-hidden"
 					title="Kanri"
 					description="Cross-platform, offline-first Kanban board desktop application with a focus on simplicity and user experience. Made with Tauri and Nuxt.js v3, official successor to Kanban Electron."
 					tech="HTML, TailwindCSS, TypeScript, Nuxt.js v3, Tauri, JSON"
 					github="https://github.com/trobonox/kanri"
 				/>
 				<ProjectCard
+					classList="projects-intersect-hidden transition-delay-1"
 					title="Productivity Suite"
 					description="All-in-one web app for productivity tools like a Pomodoro timer and a Kanban board, with user authentication and cloud save using Supabase as the backend."
 					tech="HTML, Tailwind CSS, JavaScript, Nuxt.js, Supabase (PostgreSQL Database + Authentication)"
@@ -121,6 +127,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				/>
 
 				<ProjectCard
+					classList="projects-intersect-hidden transition-delay-2"
 					title="Ultramarine Linux Website"
 					description="Designed and implemented a landing page for the Linux Distribution Ultramarine, which is based on Fedora Linux."
 					tech="HTML, Tailwind CSS, Javascript, Nuxt.js"
@@ -131,12 +138,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				class="hidden md:grid md:grid-flow-col w-full justify-between gap-8 mt-8 mb-4"
 			>
 				<ProjectCard
+					classList="projects-intersect-hidden"
 					title="AbletonConvert"
 					description="A CLI Tool for making Files from newer Ableton 10 Versions (10.1.x) compatible with older ones (10.0.x)"
 					tech=".NET, C#, XML, Ableton Live Sets"
 					github="https://github.com/trobonox/abletonconvert"
 				/>
 				<ProjectCard
+					classList="projects-intersect-hidden transition-delay-1"
 					title="Pokaimon"
 					description="Collaborated with 2 people to build a Genshin Impact themed collectible game with mechanics similar to Pokémon, made for the Supabase Launch Week 5 Hackathon."
 					tech="HTML, TailwindCSS, TypeScript/JavaScript, Vue.js v3, Supabase"
@@ -144,6 +153,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					website="https://pokaimon.moe"
 				/>
 				<ProjectCard
+					classList="projects-intersect-hidden transition-delay-2"
 					title="Lohem Bot"
 					description="Discord bot for the community Lohem, based around the game The Isle. Manages gameserver config files over FTP and integrates this concept with features like a currency system."
 					tech="Python, Discord.py, SQLite, FTP Data Transfer, JSON"
@@ -178,4 +188,69 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		);
 		transition: all 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 	}
+
+	.intersect-hidden {
+		opacity: 0;
+		transform: translateY(-1.5rem);
+		transition: all 1.3s ease-in-out;
+	}
+
+	.intersect-hidden:nth-child(2) {
+		transition-delay: 200ms;
+	}
+
+	.intersect-hidden:nth-child(3) {
+		transition-delay: 300ms;
+		transition-duration: 1.7s;
+	}
+
+	.intersect-hidden:nth-child(4) {
+		transition-delay: 400ms;
+	}
+
+	.intersect-show {
+		opacity: 100%;
+		transform: translateY(0);
+	}
 </style>
+
+<script>
+	const hiddenElements = document.querySelectorAll(".intersect-hidden");
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) return;
+
+			entry.target.classList.toggle(
+				"intersect-show",
+				entry.isIntersecting
+			);
+		});
+	});
+
+	hiddenElements.forEach((element) => {
+		observer.observe(element);
+	});
+
+	const projectCardElements = document.querySelectorAll(
+		".projects-intersect-hidden"
+	);
+
+	const projectCardObserver = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
+
+				entry.target.classList.toggle(
+					"projects-intersect-show",
+					entry.isIntersecting
+				);
+			});
+		},
+		{ threshold: 0.2 }
+	);
+
+	projectCardElements.forEach((element) => {
+		projectCardObserver.observe(element);
+	});
+</script>
